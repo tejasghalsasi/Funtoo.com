@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Login</title>
+<link rel="stylesheet" type="text/css" href="bg.css">
+<script>
+    var validate = function () {
+        if( (!(/^([a-z0-9])([\w\.\-\+])+([a-z0-9])\@((\w)([\w\-]?)+\.)+([a-z]{2,4})$/i.test(document.contact_form.email.value))) || document.contact_form.email.value == "" || document.contact_form.first_name.value == "" ) {
+            document.getElementById('error').innerHTML = '<strong style="color:red;">Please fill in the form correctly! DON\'T leave any field blank! <\/strong>';
+            return false;
+        }
+    }
+</script>
+</head>
+<body>
+<section>  
+    <form action="validate.php" method="post" name="contact_form" onsubmit="return validate()">
+        <fieldset>
+               
+            
+            <table border="0"><tr>   <td> <label>E-Mail:</label></td>
+                    <td><input type="email" name="email" title="Enter a valid email address!" placeholder="me@example.com" onclick="select()" required /></td></tr>
+            
+                <tr><td>    <label>Password:</label></td>
+                    <td><input type="password" name="password" title="Enter your password!" placeholder="password" onclick="select()" required /></td></tr>
+                
+                <tr><td> <legend>Submit</legend></td>
+            <td>            <label id="error"> </label> </td></tr>
+            <tr>       <td>     <input type="submit" value="Submit" /></td>
+                <td>            <input type="reset" /> </td></tr></table>
+        </fieldset>
+    </form>
+</section>
+</body>
+</html>

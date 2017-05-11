@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Contact us</title>
+<link rel="stylesheet" type="text/css" href="bg.css"z>
+<script>
+    var validate = function () {
+        if( (!(/^([a-z0-9])([\w\.\-\+])+([a-z0-9])\@((\w)([\w\-]?)+\.)+([a-z]{2,4})$/i.test(document.contact_form.email.value))) || document.contact_form.email.value == "" || document.contact_form.first_name.value == "" || document.contact_form.last_name.value == "" || document.contact_form.city.value == "" || document.contact_form.state.value == "" || document.contact_form.comments.value == "" ) {
+            document.getElementById('error').innerHTML = '<strong style="color:red;">Please fill in the form correctly! DON\'T leave any field blank! <\/strong>';
+            return false;
+        }
+    }
+</script>
+</head>
+<body>
+<section>
+    <h2>Contact Us</h2>
+    <a href="mailto:tejasghalsasi@gmail.com?Subject=New visitor feed back">Our Email Link</a>
+    
+    <form action="thanku.php" method="post" name="contact_form" onsubmit="return validate()">
+        <fieldset>
+               <legend>Contact Us</legend>
+               <table border="0">
+                   
+                   <tr><td><label>E-Mail:</label></td>
+                       <td><input type="email" name="email" title="Enter a valid email address!" placeholder="me@example.com" onclick="select()" required /></td></tr>
+            
+                   <tr><td> <label>First Name:</label></td>
+                       <td><input type="text" name="first_name" title="Enter your first name!" placeholder="First Name" onclick="select()" required /></td> </tr>
+            
+                   <tr><td><label>Last Name:</label></td>
+                       <td> <input type="text" name="last_name" title="Enter your last name!" placeholder="Last Name" onclick="select()" required /> </td></tr>
+            
+                   <tr><td><label>City:</label></td>
+                       <td><input type="text" name="city" title="Enter your city!" placeholder="City" onclick="select()" required /></td></tr> <br/>
+            
+                   <tr><td><label>State:</label></td>
+                       <td><input type="text" name="state" title="Enter your state!" placeholder="State" onclick="select()" required /></td></tr>
+            
+                   <tr><td><label>Comments:</label></td>
+                       <td><textarea name="comments" rows="5" cols="23" title="Enter your comments!" onclick="select()"></textarea></td></tr>
+                   
+                   <tr><td>  <legend>Submit</legend></td>
+               <td><label id="error"> </label></td></tr>
+               <tr><td>   <input type="submit" value="Submit" /></td>
+                   <td>   <input type="reset" /></td> </tr></table>
+        </fieldset>
+    </form>
+</section>
+</body>
+</html>
